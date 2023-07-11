@@ -28,7 +28,10 @@ form.addEventListener(
 // BUTTON
 form.addEventListener('submit', event => {
   event.preventDefault();
-  console.log(JSON.parse(localStorage.getItem('feedback-form-state')));
+  if (JSON.parse(localStorage.getItem('feedback-form-state') == null))
+    console.log('Vault is empty.');
+  else console.log(JSON.parse(localStorage.getItem('feedback-form-state')));
+
   formEmail.value = '';
   formMessage.value = '';
   localStorage.clear();
