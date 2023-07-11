@@ -6,8 +6,8 @@ const formMessage = document.querySelector('form label textarea');
 const formButton = document.querySelector('form button');
 
 const formValues = {
-  Email: '',
-  textArea: '',
+  Email: formEmail.value,
+  textArea: formMessage.value,
 };
 
 if (localStorage.getItem('feedback-form-state') != null) {
@@ -28,7 +28,7 @@ form.addEventListener(
 // BUTTON
 form.addEventListener('submit', event => {
   event.preventDefault();
-  console.log(formValues);
+  console.log(JSON.parse(localStorage.getItem('feedback-form-state')));
   formEmail.value = '';
   formMessage.value = '';
   localStorage.clear();
